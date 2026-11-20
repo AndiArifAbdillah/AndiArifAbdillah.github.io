@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andi Arif Abdillah | AI, Data &amp; Web Portfolio</title>
+<meta name="description" content="Informatics graduate building AI systems, data tools, and web apps: LLM fine-tuning and RAG, machine learning, dashboards, and AI-assisted full-stack development.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Andi Arif Abdillah | AI, Data & Web Portfolio">
+<meta property="og:description" content="LLM fine-tuning & RAG, machine learning, data dashboards, and AI-assisted web apps. Informatics graduate, Gunadarma University (GPA 3.55).">
+<meta property="og:image" content="https://andiarifabdillah.github.io/og.jpg">
+<meta property="og:url" content="https://andiarifabdillah.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f9fa;
+    --surface: #ffffff;
+    --surface-2: #eef4f3;
+    --text: #12212a;
+    --muted: #55656e;
+    --line: #dde6e6;
+    --accent: #0f766e;
+    --accent-strong: #115e59;
+    --accent-soft: #ccfbf1;
+    --chip: #e6f2f1;
+    --shadow: 0 1px 2px rgba(16, 40, 48, .06), 0 8px 24px rgba(16, 40, 48, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1417;
+      --surface: #111d21;
+      --surface-2: #14262a;
+      --text: #e6efef;
+      --muted: #9fb2b5;
+      --line: #22363a;
+      --accent: #2dd4bf;
+      --accent-strong: #5eead4;
+      --accent-soft: #0f3b38;
+      --chip: #17302f;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font-weight: 800; color: var(--text); letter-spacing: -.01em; }
+  .brand span { color: var(--accent); }
+  nav.links { display: flex; gap: 22px; font-size: 14px; font-weight: 600; }
+  nav.links a { color: var(--muted); }
+  nav.links a:hover { color: var(--text); text-decoration: none; }
+
+  /* hero */
+  .hero { padding: 64px 0 40px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--accent-strong);
+    background: var(--accent-soft); padding: 6px 12px; border-radius: 999px;
+  }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.08; letter-spacing: -.03em; margin: 18px 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 620px; margin: 0 0 26px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: 15px;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #062421; } }
+  .btn.primary:hover { background: var(--accent-strong); }
+  .btn svg { width: 18px; height: 18px; }
+  .photo {
+    width: 220px; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 20px;
+    box-shadow: var(--shadow); border: 4px solid var(--surface);
+  }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .stat b { display: block; font-size: 26px; letter-spacing: -.02em; color: var(--accent-strong); }
+  .stat span { font-size: 13px; color: var(--muted); }
+
+  /* sections */
+  section { padding: 44px 0; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+  h2 { font-size: 28px; letter-spacing: -.02em; margin: 0; }
+  .sec-head p { margin: 0; color: var(--muted); font-size: 15px; }
+  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
+  .about p { margin: 0 0 14px; color: var(--muted); font-size: 16.5px; }
+  .about p strong { color: var(--text); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px; box-shadow: var(--shadow);
+  }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: 15px; }
+  .facts li { display: flex; gap: 10px; }
+  .facts li span:first-child { color: var(--muted); min-width: 92px; }
+
+  /* projects */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .proj { display: flex; flex-direction: column; gap: 10px; }
+  .proj .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .badge {
+    font-size: 12px; font-weight: 700; color: var(--accent-strong); background: var(--accent-soft);
+    padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .proj h3 { margin: 0; font-size: 19px; letter-spacing: -.01em; }
+  .proj p { margin: 0; color: var(--muted); font-size: 15px; }
+  .proj .result { color: var(--text); font-weight: 600; font-size: 14.5px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .tag { font-size: 12.5px; background: var(--chip); color: var(--text); padding: 3px 9px; border-radius: 6px; }
+  .links-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: auto; padding-top: 6px; font-weight: 700; font-size: 14px; }
+  .more { margin-top: 18px; }
+  .more-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 26px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .more-list li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .more-list li a { font-weight: 700; }
+  .more-list li span { color: var(--muted); }
+
+  /* timeline */
+  .timeline { display: grid; gap: 16px; }
+  .tl { display: grid; grid-template-columns: 170px 1fr; gap: 22px; }
+  .tl .when { color: var(--muted); font-size: 14px; font-weight: 600; padding-top: 3px; }
+  .tl h3 { margin: 0 0 2px; font-size: 18px; }
+  .tl .org { color: var(--accent-strong); font-weight: 600; font-size: 14.5px; margin-bottom: 8px; }
+  .tl ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .tl li { margin: 4px 0; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .skills h3 { margin: 0 0 10px; font-size: 16px; }
+
+  /* certs + contact */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .clean { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .clean li { margin: 6px 0; }
+  .contact { text-align: center; padding: 40px 24px; }
+  .contact h2 { margin-bottom: 8px; }
+  .contact p { color: var(--muted); margin: 0 auto 22px; max-width: 560px; }
+  .contact .cta { justify-content: center; }
+  footer { padding: 26px 0 40px; color: var(--muted); font-size: 13px; text-align: center; }
+
+  /* responsive */
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .photo { width: 150px; order: -1; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .about, .grid, .skills, .two, .more-list { grid-template-columns: 1fr; }
+    .tl { grid-template-columns: 1fr; gap: 4px; }
+    nav.links { display: none; }
+    .hero { padding-top: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Andi Arif Abdillah<span>.</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><span class="dot"></span>Open to remote &amp; on-site roles · Bekasi, Indonesia</span>
+          <h1>I build AI systems, data tools, and web apps that people can actually use.</h1>
+          <p class="lead">Informatics graduate (S.Kom., GPA 3.55) working across LLM fine-tuning and RAG, machine learning, data dashboards, and AI-assisted full-stack development with Claude Code.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="https://github.com/AndiArifAbdillah" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              GitHub</a>
+            <a class="btn" href="mailto:andiarifabc@gmail.com">Email me</a>
+          </div>
+        </div>
+        <img class="photo" src="foto.jpg" alt="Portrait of Andi Arif Abdillah" width="220" height="293">
+      </div>
+      <div class="stats">
+        <div class="stat"><b>3.55</b><span>GPA, Informatics</span></div>
+        <div class="stat"><b>Top 80</b><span>of 480 teams, PIDI Digdaya Hackathon 2026</span></div>
+        <div class="stat"><b>15+</b><span>projects on GitHub</span></div>
+        <div class="stat"><b>10</b><span>certifications (Dicoding &amp; LPPI)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>About</h2></div>
+      <div class="about">
+        <div>
+          <p>I like taking a messy problem all the way to something that works: <strong>a model that is evaluated honestly, a pipeline that can be reproduced, and an interface someone can use</strong>. My projects range from fine-tuning an Indonesian language model and building a RAG system over 1,949 pages of regulations, to ML services monitored with Prometheus and Grafana, to dashboards that help teams make decisions.</p>
+          <p>I use AI coding agents every day, and I review and test what they write before it ships. I've led two project teams: a 4-person team that reached the <strong>top 80 of 480</strong> at a national fintech hackathon organized by Bank Indonesia and OJK, and a capstone team in a 6-month machine learning program.</p>
+        </div>
+        <div class="card">
+          <ul class="facts">
+            <li><span>Education</span><span>S1 Informatics, Gunadarma University (2022–2026)</span></li>
+            <li><span>Focus</span><span>AI/ML, LLM &amp; RAG, data analysis, AI-assisted development</span></li>
+            <li><span>Languages</span><span>Indonesian (native), English (working proficiency)</span></li>
+            <li><span>Location</span><span>Bekasi, West Java · GMT+7</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head"><h2>Featured projects</h2><p>Code for every project is on GitHub.</p></div>
+      <div class="grid">
+
+        <article class="card proj">
+          <div class="top"><h3>Legal RAG Assistant on a Self-Fine-Tuned LLM</h3><span class="badge">LLM · RAG</span></div>
+          <p>An internal legal Q&amp;A assistant that runs fully locally. I fine-tuned Qwen2.5-1.5B on 49,969 Indonesian instructions with QLoRA, aligned it with GRPO using four reward functions I designed, and connected it to a RAG pipeline over 1,949 pages of regulations with hybrid retrieval, HyDE, reranking, and page-level citations.</p>
+          <p class="result">Graded Advanced on both criteria by Dicoding reviewers.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Hugging Face TRL</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">ChromaDB</span></div>
+          <div class="links-row"><a href="https://github.com/AndiArifAbdillah/legal-rag-chatbot-llm" target="_blank" rel="noopener">Code →</a><a href="https://huggingface.co/AndiArifAbdillah/Qwen2.5-1.5B-Instruct-ID-PGABL-GRPO" target="_blank" rel="noopener">Model on Hugging Face →</a></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top"><h3>Pos Jaga Siber: Offline Network Guard</h3><span class="badge">Security · AI</span></div>
+          <p>A 3-person team project for the Kartika Cyber Hackathon 2026. An offline box that watches office and equipment networks (generators, cameras, door locks), flags unusual device behavior with Isolation Forest, isolates critical incidents through the MikroTik API, and explains each incident with a local LLM grounded only in sensor data.</p>
+          <p class="result">Tamper-evident, hash-chained audit log and a one-minute demo with no extra tools.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Suricata</span><span class="tag">Isolation Forest</span><span class="tag">Ollama</span><span class="tag">MikroTik API</span></div>
+          <div class="links-row"><a href="https://github.com/AndiArifAbdillah/pos-jaga-siber" target="_blank" rel="noopener">Code →</a></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top"><h3>Credit Card Default Risk Prediction</h3><span class="badge">Machine Learning</span></div>
+          <p>Predicts which of 30,000 customers will miss next month's payment. I found that standard outlier removal would delete 65.7% of the data (the rows with twice the default rate), engineered payment-behavior features, and tuned the decision threshold for the business cost of missed defaulters.</p>
+          <p class="result">ROC-AUC 0.78 · 62% more defaulters caught · 51.8% lower expected losses in a cost simulation · rated 5/5.</p>
+          <div class="tags"><span class="tag">Scikit-learn</span><span class="tag">Gradient Boosting</span><span class="tag">Pandas</span></div>
+          <div class="links-row"><a href="https://github.com/AndiArifAbdillah/predictive-analytics-credit-card-default" target="_blank" rel="noopener">Code →</a></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top"><h3>Telco Churn: End-to-End ML System</h3><span class="badge">MLOps</span></div>
+          <p>From experiment to monitored service: MLflow tracking (local and DagsHub), a GitHub Actions pipeline that publishes a Docker image, a Flask model server with 12 Prometheus metrics, and Grafana dashboards with alerting, tested under generated load.</p>
+          <p class="result">All four criteria graded Advanced (5 stars).</p>
+          <div class="tags"><span class="tag">MLflow</span><span class="tag">GitHub Actions</span><span class="tag">Docker</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div>
+          <div class="links-row"><a href="https://github.com/AndiArifAbdillah/SMSML_Andi-Arif-Abdillah" target="_blank" rel="noopener">Code →</a></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top"><h3>Akademi AI &amp; Blockchain</h3><span class="badge">Web · Live</span></div>
+          <p>An interactive Indonesian learning site covering AI, crypto and blockchain, and business accounting from beginner to advanced. A fast static site in vanilla JavaScript that saves each learner's progress in the browser.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">GitHub Pages</span></div>
+          <div class="links-row"><a href="https://andiarifabdillah.github.io/akademi-ai-blockchain/" target="_blank" rel="noopener">Live site →</a><a href="https://github.com/AndiArifAbdillah/akademi-ai-blockchain" target="_blank" rel="noopener">Code →</a></div>
+        </article>
+
+        <article class="card proj">
+          <div class="top"><h3>Root Facts: AI in the Browser</h3><span class="badge">Web AI · Live</span></div>
+          <p>A camera app that recognizes vegetables with TensorFlow.js and generates fun facts with Transformers.js, all running locally in the browser as an offline-first Progressive Web App.</p>
+          <div class="tags"><span class="tag">TensorFlow.js</span><span class="tag">Transformers.js</span><span class="tag">PWA</span></div>
+          <div class="links-row"><a href="https://rootfacts-andi-arif.netlify.app" target="_blank" rel="noopener">Live app →</a><a href="https://github.com/AndiArifAbdillah/root-facts-app" target="_blank" rel="noopener">Code →</a></div>
+        </article>
+
+      </div>
+
+      <div class="more">
+        <h3 style="margin:30px 0 0;font-size:19px">More projects</h3>
+        <ul class="more-list">
+          <li><a href="https://github.com/AndiArifAbdillah/hr-attrition-analysis-jaya-jaya-maju" target="_blank" rel="noopener">HR Attrition Analysis</a> <span>· statistical EDA, ROC-AUC 0.82, 21-card Metabase dashboard</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/jaya-jaya-institut-dropout" target="_blank" rel="noopener">Student Dropout Early Warning</a> <span>· Streamlit app and Metabase dashboard</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/movielens-recommender-system" target="_blank" rel="noopener">MovieLens Recommender</a> <span>· matrix factorization and ALS in pure NumPy, 100,836 ratings</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/analisis-sentimen-brimo" target="_blank" rel="noopener">Mobile Banking Review Sentiment</a> <span>· SVM, Random Forest, BiLSTM; 5 stars</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/klasifikasi-gambar-animals10" target="_blank" rel="noopener">Animals-10 Image Classifier</a> <span>· CNN with MobileNetV2; rated 5/5</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/food-recognizer-app" target="_blank" rel="noopener">Food Recognizer App</a> <span>· Flutter, LiteRT, Firebase ML, Gemini API</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/openshop-restful-api" target="_blank" rel="noopener">OpenShop RESTful API</a> <span>· Django 4.2 and Django REST Framework</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/dns-server-lokal-uas" target="_blank" rel="noopener">Local DNS Server</a> <span>· pure Python, multithreaded UDP, caching, blocklist</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/bfgai-generative-image-suite" target="_blank" rel="noopener">Generative Image Suite</a> <span>· Stable Diffusion pipeline with a Streamlit app</span></li>
+          <li><a href="https://github.com/AndiArifAbdillah/telisik" target="_blank" rel="noopener">Telisik</a> <span>· AI financial-report verification with escrow on Monad (MVP in progress)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><h2>Experience</h2><p>Hackathon and program projects</p></div>
+      <div class="timeline">
+        <div class="card tl">
+          <div class="when">Mar – Sep 2026</div>
+          <div>
+            <h3>Team Lead, FinCrime (Hackathon Project)</h3>
+            <div class="org">PIDI Digdaya x Hackathon 2026 · organized by Bank Indonesia &amp; OJK</div>
+            <ul>
+              <li>Led a 4-person team and owned the architecture of a financial-crime intelligence system with three services: credit risk scoring, fraud detection, and crypto AML tracing.</li>
+              <li>Containerized the services with Docker and monitored them in Grafana; designed with reference to POJK No. 12/2024, Indonesia's data protection law, and FATF recommendations.</li>
+              <li>Reached the Capstone Project stage: top 80 of 480 teams.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card tl">
+          <div class="when">Aug 2025 – Jan 2026</div>
+          <div>
+            <h3>Capstone Team Leader (Machine Learning Program)</h3>
+            <div class="org">Asah led by Dicoding · remote</div>
+            <ul>
+              <li>Led the team building a Predictive Lead Scoring Portal that helps bank sales staff prioritize deposit prospects: ML model, backend API, and React frontend.</li>
+              <li>Completed a 6-month program on supervised and unsupervised learning, deep learning, and MLOps.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills</h2></div>
+      <div class="skills">
+        <div class="card"><h3>AI &amp; Machine Learning</h3><div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">TensorFlow / Keras</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">QLoRA</span><span class="tag">GRPO</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">Prompt engineering</span></div></div>
+        <div class="card"><h3>Data &amp; MLOps</h3><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Statistical analysis</span><span class="tag">Metabase</span><span class="tag">Streamlit</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div></div>
+        <div class="card"><h3>Web &amp; Tools</h3><div class="tags"><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">HTML/CSS</span><span class="tag">Django REST Framework</span><span class="tag">Flask</span><span class="tag">Flutter</span><span class="tag">Git</span><span class="tag">Claude Code</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div class="card">
+        <h2 style="font-size:22px;margin-bottom:12px">Education</h2>
+        <p style="margin:0;font-weight:700">Bachelor of Computer Science (S.Kom.), Informatics</p>
+        <p style="margin:2px 0 10px;color:var(--muted)">Gunadarma University · 2022–2026 · GPA 3.55 / 4.00</p>
+        <p style="margin:0;color:var(--muted);font-size:15px">Relevant coursework (grade A): Data Structures, Algorithm Design &amp; Analysis, Computer Networks, Object-Oriented Programming, Deep Learning Algorithms, Software Engineering.</p>
+      </div>
+      <div class="card">
+        <h2 style="font-size:22px;margin-bottom:12px">Certifications</h2>
+        <ul class="clean">
+          <li>Applied Machine Learning · Building Machine Learning Systems · Dicoding</li>
+          <li>LLM-based Generative AI Development · Deep Learning Fundamentals · Dicoding</li>
+          <li>Applied Data Science · Applying AI in Web Applications · Dicoding</li>
+          <li>Machine Learning for Flutter · Project Management Fundamentals · Dicoding</li>
+          <li>DIGDAYA Essential &amp; Practitioner Phases (digital financial innovation) · LPPI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="card contact">
+        <h2>Let's work together</h2>
+        <p>Open to AI/ML, data, and AI-assisted development roles, on-site in Jakarta or fully remote. Email me and I'll send my CV.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:andiarifabc@gmail.com">andiarifabc@gmail.com</a>
+          <a class="btn" href="https://github.com/AndiArifAbdillah" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/andi-arif-abdillah-15279030a/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://www.kaggle.com/andiarifabdillah" target="_blank" rel="noopener">Kaggle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Andi Arif Abdillah · Built with care (and Claude Code).</div>
+</footer>
+
+</body>
+</html>
